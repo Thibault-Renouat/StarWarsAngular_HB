@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+h1 {
+  color: whitesmoke;
+  background-color: grey;
+  width: fit-content;
+  padding: 0.5rem;
+  border-radius: 3px;
+}
+
+
+body{
+  width: 80%;
+  margin: auto;
+  background-image: url("./assets/img/bg.jpg");
+  background-size: cover;
+}

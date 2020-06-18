@@ -1,0 +1,27 @@
+<h1>Les vaisseaux !!</h1>
+<button [routerLink]="['/addVaisseau']">Ajouter un vaisseau</button>
+
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Fabricant</th>
+        <th scope="col">Affiliation</th>
+        <th scope="col">Monoplace</th>
+        <th scope="col">Equipage</th>
+        <th scope="col">Passagers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vaisseau of vaisseaux ">
+        <th scope="row">{{vaisseau.id}}</th>
+        <th scope="row"><a [routerLink]="['/vaisseaux', vaisseau.id]">{{vaisseau.nom}}</a></th>
+        <th scope="row">{{vaisseau.fabricant}}</th>
+        <th scope="row">{{vaisseau.affiliation}}</th>
+        <th scope="row">{{vaisseau.monoplace?'oui':'non'}}</th>
+        <th scope="row">{{vaisseau.nbEquipage}}</th>
+        <th scope="row">{{vaisseau.nbPassagers}}</th>
+      </tr>
+    </tbody>
+  </table>

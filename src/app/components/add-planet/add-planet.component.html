@@ -1,0 +1,33 @@
+<p>add-planet works!</p>
+
+
+<h1>Ajouter une planète</h1>
+
+<form #planetForm= "ngForm" (ngSubmit)="onSubmit()">
+  <label for="id">id de la planète</label>
+  <input type="number" class="form-control" id="id" name="id" required [(ngModel)]="planet.id" #id="ngModel">
+
+  <label for="nom">Nom de la planète</label>
+  <input type="text" class="form-control" id="nom" name="nom" required [(ngModel)]="planet.nom" #nom="ngModel">
+  <div [hidden]="nom.valid"
+       class="alert alert-danger">
+    Faut tout remplir !!!!!!
+  </div>
+
+  <label for="descriptif">Descriptif de la planète</label>
+  <input type="text" class="form-control" id="descriptif" name="descriptif" required [(ngModel)]="planet.descriptif" #descriptif="ngModel">
+
+  <label for="id">id de la planète</label>
+  <input type="number" class="form-control" id="id" name="id" required [(ngModel)]="planet.id" #id="ngModel">
+
+  <label for="id">id de la planète</label>
+  <input type="number" class="form-control" id="id" name="id" required [(ngModel)]="planet.id" #id="ngModel">
+
+  <label for="id">id de la planète</label>
+  <input type="number" class="form-control" id="id" name="id" required [(ngModel)]="planet.id" #id="ngModel">
+
+  <label for="id">id de la planète</label>
+  <input type="number" class="form-control" id="id" name="id" required [(ngModel)]="planet.id" #id="ngModel">
+
+  <input [disabled]="!planetForm.valid" type="submit" >
+</form>

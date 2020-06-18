@@ -1,0 +1,29 @@
+<h1>Les Planètes !!!</h1>
+
+<button [routerLink]="['/addPlanet']">Ajouter une planète</button>
+
+<table class="table table-dark">
+    <thead class="bg-secondary">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Descriptif</th>
+        <th scope="col">Population</th>
+        <th scope="col">Nombre de lunes</th>
+        <th scope="col">Atmosphère</th>
+        <th scope="col">Affiliation</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let planete of planetes ">
+        <th scope="row">{{planete.id}}</th>
+        <th scope="row"><a [routerLink]="['/planets', planete.id]">{{planete.nom}}</a></th>
+        <th scope="row">{{planete.descriptif}}</th>
+        <th scope="row">{{planete.population}}</th>
+        <th scope="row">{{planete.nbLunes}}</th>
+        <th scope="row">{{planete.atmosphere}}</th>
+        <th scope="row">{{planete.affiliation}}</th>
+      </tr>
+    </tbody>
+  </table>
