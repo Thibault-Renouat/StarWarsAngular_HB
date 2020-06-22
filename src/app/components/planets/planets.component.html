@@ -1,5 +1,7 @@
 <h1>Les Planètes !!!</h1>
 
+
+
 <button [routerLink]="['/addPlanet']">Ajouter une planète</button>
 
 <table class="table table-dark">
@@ -22,7 +24,9 @@
         <th scope="row">{{planete.descriptif}}</th>
         <th scope="row">{{planete.population}}</th>
         <th scope="row">{{planete.nbLunes}}</th>
-        <th scope="row">{{planete.atmosphere}}</th>
+<!--        <th scope="row">{{planete.atmosphere}}</th>-->
+        <th *ngIf="planete.atmosphere" scope="row">oui</th>
+        <th *ngIf="!planete.atmosphere" scope="row">non</th>
         <th scope="row">{{planete.affiliation}}</th>
       </tr>
     </tbody>

@@ -19,4 +19,10 @@ export class AddVaisseauComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit():void {
+    console.log(this.vaisseau)
+    this.vaisseauService.addVaisseau(this.vaisseau);
+    this.router.navigate(['/vaisseaux']);
+  }
+
 }
