@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Planet} from "../../models/planet";
 import {Vaisseau} from "../../models/vaisseau";
+import {VaisseauService} from "../../services/vaisseau.service";
+import {Router} from "@angular/router";
+import {PlanetService} from "../../services/planet.service";
 
 @Component({
   selector: 'app-add-vaisseau',
@@ -9,10 +11,10 @@ import {Vaisseau} from "../../models/vaisseau";
 })
 export class AddVaisseauComponent implements OnInit {
 
-  vaisseau:Vaisseau;
+  vaisseau= new Vaisseau();
 
 
-  constructor() { }
+  constructor(private vaisseauService: VaisseauService, private router:Router) { }
 
   ngOnInit(): void {
   }

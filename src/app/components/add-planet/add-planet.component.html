@@ -1,4 +1,3 @@
-<p>add-planet works!</p>
 
 
 <h1>Ajouter une planète</h1>
@@ -17,17 +16,26 @@
   <label for="descriptif">Descriptif de la planète</label>
   <input type="text" class="form-control" id="descriptif" name="descriptif" required [(ngModel)]="planet.descriptif" #descriptif="ngModel">
 
-  <label for="id">id de la planète</label>
-  <input type="number" class="form-control" id="id" name="id" required [(ngModel)]="planet.id" #id="ngModel">
+  <label for="population">Population de la planète</label>
+  <input type="string" class="form-control" id="population" name="population" required [(ngModel)]="planet.population" #population="ngModel">
 
-  <label for="id">id de la planète</label>
-  <input type="number" class="form-control" id="id" name="id" required [(ngModel)]="planet.id" #id="ngModel">
+  <label for="nbLunes">Nombre de lunes de la planète</label>
+  <input type="number" class="form-control" id="nbLunes" name="nbLunes" required [(ngModel)]="planet.nbLunes" #nbLunes="ngModel">
 
-  <label for="id">id de la planète</label>
-  <input type="number" class="form-control" id="id" name="id" required [(ngModel)]="planet.id" #id="ngModel">
+<!--
+  <label for="atmosphere">Atmosphère de la planète</label>
+  <input type="number" class="form-control" id="atmosphere" name="atmosphere" required [(ngModel)]="planet.atmosphere" #atmosphere="ngModel">
+-->
 
-  <label for="id">id de la planète</label>
-  <input type="number" class="form-control" id="id" name="id" required [(ngModel)]="planet.id" #id="ngModel">
+  <div>
+    <p class="label">Atmosphère ?</p>
+    <label for="atmoTrue">oui</label>
+    <input type="radio" name="atmoTrue" id="atmoTrue" [(ngModel)]="planet.atmosphere" [value]="true">
+    <label for="atmoFalse" id="atmoFalse">non</label>
+    <input type="radio" name="atmoFalse" [(ngModel)]="planet.atmosphere" [value]="false">
+    <br></div>
+  <label for="affiliation">Affiliation de la planète</label>
+  <input type="text" class="form-control" id="affiliation" name="affiliation" required [(ngModel)]="planet.affiliation" #affiliation="ngModel">
 
-  <input [disabled]="!planetForm.valid" type="submit" >
+  <input [disabled]="!planetForm.valid" type="submit">
 </form>

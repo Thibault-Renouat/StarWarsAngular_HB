@@ -26,6 +26,9 @@ export class PlanetService {
     return this.planets.filter(fn => fn.id === id )[0];
   }
 
+  addPlanet(planet: Planet): void {
+    this.planets.push(planet);
+  }
 
 
 

@@ -19,6 +19,7 @@ planet=new Planet();
 
   onSubmit():void {
     console.log(this.planet)
-    //this.planetService.addPlanet(this.planet);
+    this.planetService.addPlanet(this.planet);
+    this.router.navigate(['/planets']);
   }
 }
