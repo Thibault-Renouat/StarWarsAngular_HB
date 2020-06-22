@@ -13,6 +13,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { VaisseauDetailComponent } from './components/vaisseau-detail/vaisseau-detail.component';
 import { AddPlanetComponent } from './components/add-planet/add-planet.component';
 import { AddVaisseauComponent } from './components/add-vaisseau/add-vaisseau.component';
+import { ToastrModuleComponent } from './NgModule/toastr-module/toastr-module.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AddVaisseauComponent } from './components/add-vaisseau/add-vaisseau.com
     PlanetsComponent,
     VaisseauDetailComponent,
     AddPlanetComponent,
-    AddVaisseauComponent
+    AddVaisseauComponent,
+    ToastrModuleComponent
   ],
   imports: [
     BrowserModule,
