@@ -13,7 +13,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { VaisseauDetailComponent } from './components/vaisseau-detail/vaisseau-detail.component';
 import { AddPlanetComponent } from './components/add-planet/add-planet.component';
 import { AddVaisseauComponent } from './components/add-vaisseau/add-vaisseau.component';
-import { ToastrModuleComponent } from './NgModule/toastr-module/toastr-module.component';
+import { InitialesPipe } from './pipes/initiales.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,8 @@ import { ToastrModuleComponent } from './NgModule/toastr-module/toastr-module.co
     VaisseauDetailComponent,
     AddPlanetComponent,
     AddVaisseauComponent,
-    ToastrModuleComponent
+    InitialesPipe
+
   ],
   imports: [
     BrowserModule,

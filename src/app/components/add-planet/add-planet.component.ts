@@ -12,19 +12,16 @@ export class AddPlanetComponent implements OnInit {
 
 planet=new Planet();
 
-  constructor(private planetService: PlanetService, private router:Router, private toastr: ToastrService) { }
+  constructor(private planetService: PlanetService, private router:Router) { }
 
   ngOnInit(): void {
   }
 
-  showSuccess() {
-    this.toastr.success('Hello world!', 'Toastr fun!');
-  }
 
   onSubmit():void {
     console.log(this.planet)
     this.planetService.addPlanet(this.planet);
     this.router.navigate(['/planets']);
-    this.showSuccess();
+
   }
 }
