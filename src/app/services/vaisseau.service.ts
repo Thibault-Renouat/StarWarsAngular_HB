@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Vaisseau } from '../models/vaisseau';
+import {callbackify} from "util";
 
 @Injectable({
   providedIn: 'root'
@@ -20,10 +21,21 @@ export class VaisseauService {
       console.log(this.vaisseaux.filter(fn => fn.id === id )[0]);
 
       return this.vaisseaux.filter(fn => fn.id === id )[0];
+
     }
 
     addVaisseau(vaisseau: Vaisseau): void {
       this.vaisseaux.push(vaisseau)
     }
 
+    removeVaisseau(vaisseau: Vaisseau) : Vaisseau[] {
+    this.vaisseaux=this.vaisseaux.filter( vaisseauToRemove => vaisseau!== vaisseauToRemove);
+    return this.vaisseaux;
+    }
+
+    edit(vaisseau: Vaisseau): Vaisseau[] {
+      this.vaisseaux.filter(vaisseauToUpdate => vaisseau === vaisseauToUpdate)[0]= vaisseau;
+      return this.vaisseaux;
+
+    }
 }

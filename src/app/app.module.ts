@@ -14,7 +14,10 @@ import { VaisseauDetailComponent } from './components/vaisseau-detail/vaisseau-d
 import { AddPlanetComponent } from './components/add-planet/add-planet.component';
 import { AddVaisseauComponent } from './components/add-vaisseau/add-vaisseau.component';
 import { InitialesPipe } from './pipes/initiales.pipe';
-
+import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
+import { EditVaisseauComponent } from './components/edit-vaisseau/edit-vaisseau.component';
+import { EditPlanetComponent } from './components/edit-planet/edit-planet.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,16 +28,21 @@ import { InitialesPipe } from './pipes/initiales.pipe';
     VaisseauDetailComponent,
     AddPlanetComponent,
     AddVaisseauComponent,
-    InitialesPipe
+    InitialesPipe,
+    EditVaisseauComponent,
+    EditPlanetComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    CommonModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot() // ToastrModule added
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

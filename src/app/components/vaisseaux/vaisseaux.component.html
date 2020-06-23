@@ -1,4 +1,4 @@
-<h1>Les vaisseaux !!</h1>
+<script src="vaisseaux.component.ts"></script><h1>Les vaisseaux !!</h1>
 <button [routerLink]="['/addVaisseau']">Ajouter un vaisseau</button>
 
 <table class="table table-dark">
@@ -11,6 +11,8 @@
         <th scope="col">Monoplace</th>
         <th scope="col">Equipage</th>
         <th scope="col">Passagers</th>
+        <th scope="col" style="color: red">Remove Vaisseau</th>
+        <th scope="col" style="color: darkorange">Edit Vaisseau</th>
       </tr>
     </thead>
     <tbody>
@@ -22,6 +24,11 @@
         <th scope="row">{{vaisseau.monoplace?'oui':'non'}}</th>
         <th scope="row">{{vaisseau.nbEquipage}}</th>
         <th scope="row">{{vaisseau.nbPassagers}}</th>
+        <th scope="row"><a (click)="removePlanet(vaisseau)"> supprimer le vaisseau {{vaisseau.nom}}</a></th>
+        <th scope="row"><a [routerLink]="['/vaisseau/edit', vaisseau.id]"> éditer le vaisseau {{vaisseau.nom}}</a></th>
+
+
+
       </tr>
     </tbody>
   </table>

@@ -1,0 +1,42 @@
+<p>edit-vaisseau works!</p>
+
+<h1>Ajouter un vaisseau</h1>
+
+<form #vaisseauForm= "ngForm" (ngSubmit)="editVaisseau()">
+  <label for="id">id du vaisseau</label>
+  <input type="number" class="form-control" id="id" name="id" required [(ngModel)]="vaisseau.id" #id="ngModel">
+
+  <label for="nom">Nom du vaisseau</label>
+  <input type="text" class="form-control" id="nom" name="nom" required [(ngModel)]="vaisseau.nom" #nom="ngModel">
+  <div [hidden]="nom.valid"
+       class="alert alert-danger">
+    Faut tout remplir !!!!!!
+  </div>
+
+  <label for="fabricant">Fabricant du vaisseau</label>
+  <input type="text" class="form-control" id="fabricant" name="fabricant" required [(ngModel)]="vaisseau.fabricant" #fabricant="ngModel">
+
+  <label for="nbEquipage">Nombre de membres d'équipage du vaisseau</label>
+  <input type="text" class="form-control" id="nbEquipage" name="nbEquipage" required [(ngModel)]="vaisseau.nbEquipage" #population="ngModel">
+
+  <label for="nbPassagers">Nombre de passagers du vaisseau</label>
+  <input type="number" class="form-control" id="nbPassagers" name="nbPassagers" required [(ngModel)]="vaisseau.nbPassagers" #nbLunes="ngModel">
+
+  <!--
+    <label for="atmosphere">Atmosphère du vaisseau</label>
+    <input type="number" class="form-control" id="atmosphere" name="atmosphere" required [(ngModel)]="vaisseau.atmosphere" #atmosphere="ngModel">
+  -->
+
+  <div>
+    <p class="label">Monoplace ?</p>
+    <label for="monoplaceTrue">oui</label>
+    <input type="radio" name="monoplaceTrue" id="monoplaceTrue" [(ngModel)]="vaisseau.monoplace" [value]="true">
+    <label for="monoplaceFalse" id="monoplaceFalse">non</label>
+    <input type="radio" name="monoplaceFalse" [(ngModel)]="vaisseau.monoplace" [value]="false">
+    <br></div>
+  <label for="affiliation">Affiliation du vaisseau</label>
+  <input type="text" class="form-control" id="affiliation" name="affiliation" required [(ngModel)]="vaisseau.affiliation" #affiliation="ngModel">
+
+  <input [disabled]="!vaisseauForm.valid" type="submit">
+</form>
+
