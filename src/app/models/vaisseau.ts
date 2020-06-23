@@ -6,8 +6,9 @@ export class Vaisseau {
     monoplace:boolean;
     nbEquipage:number;
     nbPassagers:number;
+    image: string;
 
-    constructor (id:number=null,nom:string=null,fabricant:string="unknown",affiliation:string=null,monoplace:boolean=null,nbEquipage:number=null,nbPassagers:number=null) {
+    constructor (id:number=null,nom:string=null,fabricant:string="unknown",affiliation:string=null,monoplace:boolean=null,nbEquipage:number=null,nbPassagers:number=null,image: string=null) {
         this.id=id;
         this.nom=nom;
         this.fabricant=fabricant;
@@ -15,6 +16,7 @@ export class Vaisseau {
         this.monoplace=monoplace;
         this.nbEquipage=nbEquipage;
         this.nbPassagers=nbPassagers;
+        this.image=image;
 
     }
 }

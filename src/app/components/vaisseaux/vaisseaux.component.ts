@@ -17,7 +17,7 @@ export class VaisseauxComponent implements OnInit {
     this.vaisseaux= this.vaisseauService.getAllVaisseaux();
   }
 
-  removePlanet(vaisseau: Vaisseau):void{
+  removeVaisseau(vaisseau: Vaisseau):void{
     this.vaisseaux= this.vaisseauService.removeVaisseau(vaisseau);
     this.showSuccess();
     console.log("fonction remove ok", vaisseau)

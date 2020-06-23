@@ -1,3 +1,39 @@
-<p>edit-planet works!</p>
 
 
+<h1>Ajouter une planète</h1>
+
+<form #planetForm= "ngForm" (ngSubmit)="editPlanet()">
+
+  <label for="nom">Nom de la planète</label>
+  <input type="text" class="form-control" id="nom" name="nom" required [(ngModel)]="planet.nom" #nom="ngModel">
+  <div [hidden]="nom.valid"
+       class="alert alert-danger">
+    Faut tout remplir !!!!!!
+  </div>
+
+  <label for="descriptif">Descriptif de la planète</label>
+  <input type="text" class="form-control" id="descriptif" name="descriptif" required [(ngModel)]="planet.descriptif" #descriptif="ngModel">
+
+  <label for="population">Population de la planète</label>
+  <input type="string" class="form-control" id="population" name="population" required [(ngModel)]="planet.population" #population="ngModel">
+
+  <label for="nbLunes">Nombre de lunes de la planète</label>
+  <input type="number" class="form-control" id="nbLunes" name="nbLunes" required [(ngModel)]="planet.nbLunes" #nbLunes="ngModel">
+
+  <!--
+    <label for="atmosphere">Atmosphère de la planète</label>
+    <input type="number" class="form-control" id="atmosphere" name="atmosphere" required [(ngModel)]="planet.atmosphere" #atmosphere="ngModel">
+  -->
+
+  <div>
+    <p class="label">Atmosphère ?</p>
+    <label for="atmoTrue">oui</label>
+    <input type="radio" name="atmoTrue" id="atmoTrue" [(ngModel)]="planet.atmosphere" [value]="true">
+    <label for="atmoFalse" id="atmoFalse">non</label>
+    <input type="radio" name="atmoFalse" [(ngModel)]="planet.atmosphere" [value]="false">
+    <br></div>
+  <label for="affiliation">Affiliation de la planète</label>
+  <input type="text" class="form-control" id="affiliation" name="affiliation" required [(ngModel)]="planet.affiliation" #affiliation="ngModel">
+
+  <input [disabled]="!planetForm.valid" type="submit">
+</form>

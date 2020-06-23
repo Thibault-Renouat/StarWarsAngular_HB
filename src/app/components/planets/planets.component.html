@@ -19,6 +19,9 @@
         <th scope="col">Nombre de lunes</th>
         <th scope="col">Atmosphère</th>
         <th scope="col">Affiliation</th>
+        <th scope="col" style="color: red">Remove Planet</th>
+        <th scope="col" style="color: darkorange">Edit Vaisseau</th>
+
       </tr>
     </thead>
     <tbody>
@@ -33,6 +36,9 @@
         <th *ngIf="planete.atmosphere" scope="row">oui</th>
         <th *ngIf="!planete.atmosphere" scope="row">non</th>
         <th scope="row">{{planete.affiliation}}</th>
+        <th scope="row"><p (click)="removePlanet(planete)"  style="cursor: pointer; color: red">supprimer la planète {{planete.nom}}</p></th>
+        <th scope="row"><a [routerLink]="['/planet/edit', planete.id]"> éditer la planète {{planete.nom}}</a></th>
+
       </tr>
     </tbody>
   </table>

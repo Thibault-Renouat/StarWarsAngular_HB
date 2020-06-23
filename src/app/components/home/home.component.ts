@@ -9,11 +9,11 @@ import { TextService} from "../../services/text.service";
 export class HomeComponent implements OnInit {
 
 
-  constructor(public textServic: TextService) { }
+  constructor(public textService: TextService) { }
 
   ngOnInit(): void {
 
-    console.log(this.textServic.myText)
+    console.log(this.textService.myText)
 
   }
 

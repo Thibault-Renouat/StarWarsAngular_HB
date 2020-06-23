@@ -26,11 +26,22 @@ export class PlanetService {
     return this.planets.filter(fn => fn.id === id )[0];
   }
 
-  addPlanet(planet: Planet): void {
+    addPlanet(planet: Planet): void {
     this.planets.push(planet);
+    }
+
+    removePlanet(planet: Planet) : Planet[] {
+    this.planets=this.planets.filter( PlanetToRemove => planet!== PlanetToRemove);
+    return this.planets;
   }
 
 
+  edit(planet: Planet): Planet[] {
+    this.planets.filter(planetToUpdate => planet === planetToUpdate)[0] = planet;
+    // TODO toaster
+    return this.planets;
+    }
 
 
-}
+
+  }

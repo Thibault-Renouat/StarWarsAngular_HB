@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Vaisseau } from '../models/vaisseau';
 import {callbackify} from "util";
+import {ToastrService} from "ngx-toastr";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class VaisseauService {
 
   ];
 
-  constructor() {}
+  constructor(private toastr: ToastrService) {}
     getAllVaisseaux():Vaisseau[] {
       return this.vaisseaux;
     }
@@ -35,7 +36,14 @@ export class VaisseauService {
 
     edit(vaisseau: Vaisseau): Vaisseau[] {
       this.vaisseaux.filter(vaisseauToUpdate => vaisseau === vaisseauToUpdate)[0]= vaisseau;
+      this.showSuccess();
       return this.vaisseaux;
 
+
     }
+
+  showSuccess() {
+    this.toastr.success('Edition Réussie!', 'Toastr fun!');
+  }
+
 }

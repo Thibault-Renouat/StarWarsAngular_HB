@@ -3,8 +3,6 @@
 <h1>Ajouter un vaisseau</h1>
 
 <form #vaisseauForm= "ngForm" (ngSubmit)="editVaisseau()">
-  <label for="id">id du vaisseau</label>
-  <input type="number" class="form-control" id="id" name="id" required [(ngModel)]="vaisseau.id" #id="ngModel">
 
   <label for="nom">Nom du vaisseau</label>
   <input type="text" class="form-control" id="nom" name="nom" required [(ngModel)]="vaisseau.nom" #nom="ngModel">
@@ -15,6 +13,12 @@
 
   <label for="fabricant">Fabricant du vaisseau</label>
   <input type="text" class="form-control" id="fabricant" name="fabricant" required [(ngModel)]="vaisseau.fabricant" #fabricant="ngModel">
+  <div [hidden]="fabricant.valid"
+       class="alert alert-danger">
+    Faut tout remplir !!!!!!
+  </div>
+
+
 
   <label for="nbEquipage">Nombre de membres d'équipage du vaisseau</label>
   <input type="text" class="form-control" id="nbEquipage" name="nbEquipage" required [(ngModel)]="vaisseau.nbEquipage" #population="ngModel">
