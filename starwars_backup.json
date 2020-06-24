@@ -1,0 +1,56 @@
+{
+  "planet": [
+    {
+      "nom": "Korriban",
+      "descriptif": "Berceau ancestral des Sith",
+      "population": 10,
+      "nblunes": 0,
+      "atmosphere": true,
+      "affiliation": "Empire",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "nom": "Coruscant",
+      "descriptif": "Siège de la République",
+      "population": "42 Milliards",
+      "nblunes": 2,
+      "atmosphere": true,
+      "affiliation": "République"
+    },
+    {
+      "nom": "Dromund Kass",
+      "descriptif": "Capitale de l'Empire Sith",
+      "population": 100000,
+      "nblunes": 0,
+      "atmosphere": true,
+      "affiliation": "Empire",
+      "id": 3
+    }
+  ],
+  "vaisseau": [
+    {
+      "id": 1,
+      "nom": "Chasseur Tie",
+      "fabricant": "Chantier naval de Kuat",
+      "affiliation": "Empire",
+      "monoplace": true,
+      "nbEquipage": 1,
+      "nbPassagers": 0,
+      "image": "tie.jpg"
+    },
+    {
+      "id": 2,
+      "nom": "X-wing",
+      "fabricant": "Incom-Freitek",
+      "affiliation": "République",
+      "monoplace": true,
+      "nbEquipage": 1,
+      "nbPassagers": 0,
+      "image": "xwing.jpg"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
