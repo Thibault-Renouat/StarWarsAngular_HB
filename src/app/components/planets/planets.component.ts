@@ -13,7 +13,11 @@ export class PlanetsComponent implements OnInit {
   constructor(private planeteService: PlanetService) { }
 
   ngOnInit(): void {
-    this.planetes= this.planeteService.getAllPlanets();
+    // ## VERSION SANS JSON SERVER ## this.planetes= this.planeteService.getAllPlanets();
+    this.planeteService.getAllPlanets().subscribe(data => {
+      this.planetes=data;
+    });
+
   }
 
   removePlanet(Planet: Planet):void{

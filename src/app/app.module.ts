@@ -18,6 +18,8 @@ import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { EditVaisseauComponent } from './components/edit-vaisseau/edit-vaisseau.component';
 import { EditPlanetComponent } from './components/edit-planet/edit-planet.component';
+import {HttpClientModule} from "@angular/common/http";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +42,8 @@ import { EditPlanetComponent } from './components/edit-planet/edit-planet.compon
     FormsModule,
     CommonModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot() // ToastrModule added
+    ToastrModule.forRoot(), // ToastrModule added
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

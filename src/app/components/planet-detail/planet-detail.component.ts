@@ -17,7 +17,11 @@ export class PlanetDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = parseInt(this.route.snapshot.paramMap.get('id'));
+/*  ### SANS JSON SERVER ###
     this.planete=this.planeteService.getOnePlanetById(this.id);
+*/
+    this.planeteService.getOnePlanetById(+this.route.snapshot.paramMap.get('id')).subscribe((data:Planet)=> {this.planete =data});
+
 
   }
 

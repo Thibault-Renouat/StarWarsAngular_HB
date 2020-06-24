@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Planet } from '../models/planet';
-import {Vaisseau} from "../models/vaisseau";
-
+import {Observable, throwError} from 'rxjs';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {catchError, retry} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -14,17 +15,36 @@ export class PlanetService {
 
   ];
 
-  constructor() {}
+  apiUrlPlanets= 'http://localhost:3000/planet';
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
 
-    getAllPlanets():Planet[] {
-      return this.planets;
+  constructor(private http: HttpClient) {
+    this.planets=[];
+  }
+
+    getAllPlanets():Observable<Planet[]> {
+      return this.http.get<Planet[]>(this.apiUrlPlanets)
+        .pipe(retry(1),
+                      catchError(this.handleError));
 
     }
+/*  ### SANS JSON SERVER ###
     getOnePlanetById(id:number):Planet {
     console.log(this.planets.filter(fn => fn.id === id )[0]);
 
     return this.planets.filter(fn => fn.id === id )[0];
-  }
+    }
+*/
+
+
+    getOnePlanetById(id:number):Observable<Planet> {
+      return this.http.get<Planet>(this.apiUrlPlanets + '/' + id).pipe(retry(1),catchError(this.handleError));
+
+    }
 
     addPlanet(planet: Planet): void {
     this.planets.push(planet);
@@ -42,6 +62,18 @@ export class PlanetService {
     return this.planets;
     }
 
+  handleError(error) {
+    let errorMessage = '';
+    if ( error.error instanceof ErrorEvent ) {
+// Get client-side error
+      errorMessage = error.error.message;
+    } else {
+// Get server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    window.alert(errorMessage);
+    return throwError(errorMessage);
+  }
 
 
   }
