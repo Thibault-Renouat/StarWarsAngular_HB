@@ -78,13 +78,20 @@ export class VaisseauService {
   }
 
 
+/*  //### SANS JSON SERVER ###
     edit(vaisseau: Vaisseau): Vaisseau[] {
       this.vaisseaux.filter(vaisseauToUpdate => vaisseau === vaisseauToUpdate)[0]= vaisseau;
       this.showSuccess();
       return this.vaisseaux;
 
-
     }
+*/
+
+  edit(vaisseau: Vaisseau): Observable<Vaisseau> {
+    return this.http.put<Vaisseau>(this.apiUrlVaisseaux +'/'+ vaisseau.id, vaisseau, this.httpOptions).pipe(
+      catchError(this.handleError)
+    );
+  }
 
   showSuccess() {
     this.toastr.success('Edition Réussie!', 'Toastr fun!');

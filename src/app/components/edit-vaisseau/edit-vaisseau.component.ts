@@ -26,10 +26,18 @@ export class EditVaisseauComponent implements OnInit {
     */
   }
 
+/* //### SANS JSON SERVER ###
   editVaisseau() {
     this.vaisseauService.edit(this.vaisseau);
     this.router.navigate(['/vaisseaux'])
 
+  }
+*/
+
+  editVaisseau() {
+    this.vaisseauService.edit(this.vaisseau).subscribe(then => {
+      this.router.navigate(['/vaisseaux']);
+    });
   }
 
 }
