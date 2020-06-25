@@ -26,6 +26,15 @@
       "atmosphere": true,
       "affiliation": "Empire",
       "id": 3
+    },
+    {
+      "id": 4,
+      "descriptif": "descriptif test",
+      "nom": "test",
+      "population": "100000",
+      "nbLunes": 5,
+      "atmosphere": false,
+      "affiliation": "Empire"
     }
   ],
   "vaisseau": [

@@ -32,7 +32,8 @@ export class PlanetService {
                       catchError(this.handleError));
 
     }
-/*  ### SANS JSON SERVER ###
+/*
+  //### SANS JSON SERVER ###
     getOnePlanetById(id:number):Planet {
     console.log(this.planets.filter(fn => fn.id === id )[0]);
 
@@ -46,9 +47,16 @@ export class PlanetService {
 
     }
 
+/*  //### SANS JSON SERVER ###
     addPlanet(planet: Planet): void {
     this.planets.push(planet);
+
     }
+*/
+
+  addPlanet(planet: Planet): Observable<Planet> {
+    return this.http.post<Planet>(this.apiUrlPlanets, planet, this.httpOptions).pipe(catchError(this.handleError));
+  }
 
     removePlanet(planet: Planet) : Planet[] {
     this.planets=this.planets.filter( PlanetToRemove => planet!== PlanetToRemove);

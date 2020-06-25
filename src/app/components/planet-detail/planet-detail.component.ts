@@ -12,6 +12,7 @@ export class PlanetDetailComponent implements OnInit {
 
   id:number;
   planete:Planet;
+  isLoading: boolean;
 
   constructor(private route: ActivatedRoute,private planeteService: PlanetService) { }
 
@@ -19,9 +20,9 @@ export class PlanetDetailComponent implements OnInit {
     this.id = parseInt(this.route.snapshot.paramMap.get('id'));
 /*  ### SANS JSON SERVER ###
     this.planete=this.planeteService.getOnePlanetById(this.id);
-*/
+*/  this.isLoading = true;
     this.planeteService.getOnePlanetById(+this.route.snapshot.paramMap.get('id')).subscribe((data:Planet)=> {this.planete =data});
-
+    this.isLoading = false;
 
   }
 
