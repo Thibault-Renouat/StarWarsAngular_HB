@@ -16,9 +16,14 @@ export class EditVaisseauComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private vaisseauService: VaisseauService, private router: Router) { }
 
   ngOnInit(): void {
-    const id= +this.activatedRoute.snapshot.paramMap.get('id');
-    this.vaisseau = this.vaisseauService.getOneVaisseauById(id);
-    console.log(this.vaisseau);
+    this.vaisseauService.getOneVaisseauById(+this.activatedRoute.snapshot.paramMap.get('id')).subscribe((data:Vaisseau) => {this.vaisseau = data});
+
+
+    /*
+        const id= +this.activatedRoute.snapshot.paramMap.get('id');
+        this.vaisseau = this.vaisseauService.getOneVaisseauById(id);
+        console.log(this.vaisseau);
+    */
   }
 
   editVaisseau() {

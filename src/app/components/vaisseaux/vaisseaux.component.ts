@@ -14,13 +14,27 @@ export class VaisseauxComponent implements OnInit {
   constructor(private vaisseauService: VaisseauService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.vaisseaux= this.vaisseauService.getAllVaisseaux();
+    /*### SANS JSON SERVER ###
+     this.vaisseaux= this.vaisseauService.getAllVaisseaux();
+     */
+
+    this.vaisseauService.getAllVaisseaux().subscribe((data: Vaisseau[]) => {
+      this.vaisseaux = data
+    });
+
+
   }
 
-  removeVaisseau(vaisseau: Vaisseau):void{
-    this.vaisseaux= this.vaisseauService.removeVaisseau(vaisseau);
-    this.showSuccess();
-    console.log("fonction remove ok", vaisseau)
+  removeVaisseau(id:number):void{
+    //this.vaisseaux= this.vaisseauService.removeVaisseau(vaisseau);
+    this.vaisseauService.removeVaisseau(id).subscribe(then => {
+      this.showSuccess();
+      this.vaisseauService.getAllVaisseaux().subscribe((data: Vaisseau[]) => {
+        this.vaisseaux = data;
+      })
+    })
+
+    //console.log("fonction remove ok", vaisseau)
   }
 
   showSuccess() {

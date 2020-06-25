@@ -11,6 +11,7 @@ import {PlanetService} from "../../services/planet.service";
 })
 export class AddVaisseauComponent implements OnInit {
 
+  autoIncrementActivated:boolean = true;
   vaisseau= new Vaisseau();
 
 
@@ -19,10 +20,18 @@ export class AddVaisseauComponent implements OnInit {
   ngOnInit(): void {
   }
 
+/*
   onSubmit():void {
     console.log(this.vaisseau)
     this.vaisseauService.addVaisseau(this.vaisseau);
     this.router.navigate(['/vaisseaux']);
+  }
+*/
+
+  onSubmit(): void{
+    this.vaisseauService.addVaisseau(this.vaisseau).subscribe(then => {
+      this.router.navigate(['/vaisseaux'])
+    })
   }
 
 }

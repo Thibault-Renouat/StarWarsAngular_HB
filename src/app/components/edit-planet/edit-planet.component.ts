@@ -23,10 +23,17 @@ export class EditPlanetComponent implements OnInit {
   }
 
 
+/*  //### SANS JSON SERVER ###
     editPlanet() {
     this.planeteService.edit(this.planet);
     this.router.navigate(['/planets'])
     }
+*/
 
+  editPlanet() {
+    this.planeteService.edit(this.planet).subscribe(then => {
+      this.router.navigate(['/planets']);
+    })
+  }
 
   }

@@ -25,7 +25,7 @@
         <th scope="row">{{vaisseau.nbEquipage}}</th>
         <th scope="row">{{vaisseau.nbPassagers}}</th>
 <!--        <th scope="row"><a (click)="removeVaisseau(vaisseau)"> supprimer le vaisseau {{vaisseau.nom}}</a></th>-->
-        <th scope="row"><p (click)="removeVaisseau(vaisseau)"  style="cursor: pointer; color: red">supprimer le vaisseau {{vaisseau.nom}}</p></th>
+        <th scope="row"><p (click)="removeVaisseau(vaisseau.id)"  style="cursor: pointer; color: red">supprimer le vaisseau {{vaisseau.nom}}</p></th>
         <th scope="row"><a [routerLink]="['/vaisseau/edit', vaisseau.id]"> éditer le vaisseau {{vaisseau.nom}}</a></th>
 
 

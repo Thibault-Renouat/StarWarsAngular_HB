@@ -1,8 +1,9 @@
 <h1>Ajouter un vaisseau</h1>
 
 <form #vaisseauForm= "ngForm" (ngSubmit)="onSubmit()">
-  <label for="id">id du vaisseau</label>
-  <input type="number" class="form-control" id="id" name="id" required [(ngModel)]="vaisseau.id" #id="ngModel">
+  <div *ngIf="!autoIncrementActivated"><label for="id">id du vaisseau</label>
+    <input type="number" class="form-control" id="id" name="id" required [(ngModel)]="vaisseau.id" #id="ngModel">
+  </div>
 
   <label for="nom">Nom du vaisseau</label>
   <input type="text" class="form-control" id="nom" name="nom" required [(ngModel)]="vaisseau.nom" #nom="ngModel">

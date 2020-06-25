@@ -70,11 +70,17 @@ export class PlanetService {
     }
 
 
+/* //###  SANS JSON SERVER  ###
   edit(planet: Planet): Planet[] {
     this.planets.filter(planetToUpdate => planet === planetToUpdate)[0] = planet;
     // TODO toaster
     return this.planets;
     }
+*/
+
+  edit(planet: Planet) {
+    return this.http.put<Planet>(this.apiUrlPlanets +'/'+ planet.id,planet, this.httpOptions).pipe(catchError(this.handleError));
+  }
 
   handleError(error) {
     let errorMessage = '';
