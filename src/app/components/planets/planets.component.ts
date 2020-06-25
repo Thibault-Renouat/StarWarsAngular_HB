@@ -10,6 +10,9 @@ import {Vaisseau} from "../../models/vaisseau";
 })
 export class PlanetsComponent implements OnInit {
   planetes: Planet[];
+  isLoading:boolean;
+
+
   constructor(private planeteService: PlanetService) { }
 
   ngOnInit(): void {
@@ -20,11 +23,22 @@ export class PlanetsComponent implements OnInit {
 
   }
 
+/* ### SANS SERVER JSON ###
   removePlanet(Planet: Planet):void{
     this.planetes= this.planeteService.removePlanet(Planet);
     //this.showSuccess();
     console.log("fonction remove ok", Planet)
   }
+*/
 
+  removePlanet(id:number): void {
+    this.isLoading=true;
+    this.planeteService.removePlanet(id).subscribe(then => {
+      this.planeteService.getAllPlanets().subscribe((data:Planet[])=>{
+        this.planetes = data;
+        this.isLoading=false;
+      })
+    })
+  }
 
 }

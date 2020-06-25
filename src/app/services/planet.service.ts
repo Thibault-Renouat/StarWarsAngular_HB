@@ -58,10 +58,16 @@ export class PlanetService {
     return this.http.post<Planet>(this.apiUrlPlanets, planet, this.httpOptions).pipe(catchError(this.handleError));
   }
 
+/*  //### SANS JSON SERVER ###
     removePlanet(planet: Planet) : Planet[] {
     this.planets=this.planets.filter( PlanetToRemove => planet!== PlanetToRemove);
     return this.planets;
   }
+*/
+
+    removePlanet(id: number): Observable<Planet> {
+      return this.http.delete<Planet>(this.apiUrlPlanets+'/'+id).pipe(retry(1), catchError(this.handleError));
+    }
 
 
   edit(planet: Planet): Planet[] {

@@ -36,7 +36,7 @@
         <th *ngIf="planete.atmosphere" scope="row">oui</th>
         <th *ngIf="!planete.atmosphere" scope="row">non</th>
         <th scope="row">{{planete.affiliation}}</th>
-        <th scope="row"><p (click)="removePlanet(planete)"  style="cursor: pointer; color: red">supprimer la planète {{planete.nom}}</p></th>
+        <th scope="row"><p (click)="removePlanet(planete.id)"  style="cursor: pointer; color: red">supprimer la planète {{planete.nom}}</p></th>
         <th scope="row" ><p [routerLink]="['/planet/edit', planete.id]" style="color: darkorange; cursor: pointer"> éditer la planète {{planete.nom}}</p></th>
 
       </tr>
